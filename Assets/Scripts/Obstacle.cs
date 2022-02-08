@@ -16,9 +16,13 @@ public class Obstacle : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
+
+            GameManager._instance.GameOver();
         }
         else if(collision.gameObject.tag == "Ground")
         {
+            GameManager._instance.IncrementScore();
+
             gameObject.SetActive(false);
 
             Destroy(gameObject, 3f);

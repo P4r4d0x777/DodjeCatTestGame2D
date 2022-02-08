@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float _xPositionLimit;
 
-    public float spawnRate;
+    public float _spawnRate;
 
     private void Start()
     {
@@ -26,11 +26,11 @@ public class EnemySpawner : MonoBehaviour
 
     void StartSpawning()
     {
-        InvokeRepeating("SpawnSpike", 1f, spawnRate);
+        InvokeRepeating("SpawnSpike", 1f, _spawnRate);
     }
 
     public void StopSpawning()
     {
-        CancelInvoke("SpawnInvoke");
+        CancelInvoke("SpawnSpike");
     }
 }
