@@ -10,4 +10,18 @@ public class Obstacle : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, _rotateSpeed));    
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "Ground")
+        {
+            gameObject.SetActive(false);
+
+            Destroy(gameObject, 3f);
+        }
+    }
 }
